@@ -7,7 +7,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ category.cateName }}</h5>
             <p class="card-text">{{ category.cateDescription }}</p>
-            <router-link :to="{name: 'EditCategory',  params: {cateId: category.cateId}}">
+            <router-link :to="{name: 'EditCategory',  params: {cateId: category.cateId}}" v-show="$route.name=='AllCategory'">
                 <a href="#" class="btn btn-primary">Edit</a>
             </router-link>
         </div>
