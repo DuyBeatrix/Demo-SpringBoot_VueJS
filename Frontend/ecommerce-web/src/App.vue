@@ -6,19 +6,21 @@
     :products="products"
     @fetchData="fetchData "
   >
-  </router-view>  
+  </router-view>
+  <FooterComponent/>
 </template>
 
 <script>
   import axios from 'axios';
   import NavbarComponent from './components/NavbarComponent.vue';
+  import FooterComponent from "./components/FooterComponent.vue";
   export default {
-    components: {NavbarComponent},
+    components: {NavbarComponent, FooterComponent},
     data() {
       return {
         baseURL: "http://localhost:8081/",
-        products: null,
-        categories: 2
+        products: [],
+        categories: []
       }
     },
     methods: {

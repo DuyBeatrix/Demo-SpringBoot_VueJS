@@ -3,6 +3,7 @@ package com.huuduy.ecommerce.service;
 import com.huuduy.ecommerce.DTO.request.ProductRequest;
 import com.huuduy.ecommerce.DTO.response.ProductResponse;
 import com.huuduy.ecommerce.mapper.ProductMapper;
+import com.huuduy.ecommerce.model.Category;
 import com.huuduy.ecommerce.model.Product;
 import com.huuduy.ecommerce.repository.CategoryRepo;
 import com.huuduy.ecommerce.repository.ProductRepo;
@@ -44,5 +45,17 @@ public class ProductService
         Product product = productRepo.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
         productMapper.updateProduct(product, productRequest);
         return productMapper.toProductResponse(productRepo.save(product));
+    }
+
+    public List<ProductResponse> getProductsByCategory(int categoryId)
+    {
+        List<Product> productList = new ArrayList<>();
+        Category category = categoryRepo.findById(categoryId).orElseThrow();
+        productList = productRepo.findByCategory(category);
+        List<ProductResponse> productResponses = new ArrayList<>();
+        for(Product product : productList) {
+            productResponses.add(productMapper.toProductResponse(product));
+        }
+        return productResponses;
     }
 }

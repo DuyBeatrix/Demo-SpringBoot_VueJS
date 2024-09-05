@@ -7,6 +7,8 @@ import AdminView from '@/views/AdminView.vue'
 import AllProduct from '@/views/Product/AllProduct.vue'
 import AddProduct from '@/views/Product/AddProduct.vue'
 import EditProduct from '@/views/Product/EditProduct.vue'
+import ProductDetail from "@/views/Product/ProductDetail.vue";
+import ListProducts from "@/views/Category/ListProducts.vue";
 const routes = [
   {
     path: '/',
@@ -49,6 +51,17 @@ const routes = [
     name: 'AdminView',
     component: AdminView
   },
+  {
+    path: '/product/show/:productId',
+    name: 'ShowDetails',
+    component: ProductDetail
+  },
+  // List product in detail
+  {
+    path: '/category/show/:cateId',
+    name: 'ListProduct',
+    component: ListProducts
+  }
 ]
 
 const router = createRouter({

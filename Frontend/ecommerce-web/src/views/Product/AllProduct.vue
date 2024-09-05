@@ -8,9 +8,9 @@
                 </router-link>
             </div>
             <div class="row col-12">
-                    <div v-for="product of products" :key="product.productId" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-                        <ProductBox :product="product"></ProductBox>
-                    </div>
+              <div v-for="product of products" :key="product.productId" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
+                <ProductBox :product="product"></ProductBox>
+              </div>
             </div>
         </div>
     </div>

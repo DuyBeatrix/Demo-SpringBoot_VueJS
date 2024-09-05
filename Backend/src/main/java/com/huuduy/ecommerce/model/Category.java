@@ -1,8 +1,12 @@
 package com.huuduy.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -26,4 +30,8 @@ public class Category
 
     @Column(name = "cate_img")
     String cateImg;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    List<Product> productList;
 }

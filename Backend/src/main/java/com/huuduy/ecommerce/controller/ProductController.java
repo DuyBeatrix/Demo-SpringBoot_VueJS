@@ -45,4 +45,15 @@ public class ProductController
         apiResponse.setMessage("Success");
         return apiResponse;
     }
+
+    @GetMapping("/{cateId}")
+    public ApiResponse<List<ProductResponse>> getProductsByCategory(@PathVariable int cateId)
+    {
+        ApiResponse<List<ProductResponse>> apiResponse = new ApiResponse<>();
+        apiResponse.setResult(productService.getProductsByCategory(cateId));
+        apiResponse.setCode(200);
+        apiResponse.setMessage("Success");
+        return apiResponse;
+    }
+
 }

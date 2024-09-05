@@ -4,7 +4,9 @@
             <img class="card-img-top embed-responsive-item" :src="require(`@/assets/${product.productImg}`)"/>
         </div>
         <div class="card-body">
-            <h5 class="card-title">{{ product.productName }}</h5>
+            <router-link :to="{name: 'ShowDetails', params: {productId: product.productId}}">
+              <h5 class="card-title">{{ product.productName }}</h5>
+            </router-link>
             <p class="card-text">{{ product.productDescription }}</p>
             <h5 class="card-title">{{ product.productPrice }}</h5>
             <router-link :to="{name: 'EditProduct', params: {productId: product.productId}}">
@@ -23,5 +25,8 @@
 <style scoped>
     .card-img-top {
         object-fit: cover;
+    }
+    a {
+      text-decoration: none;
     }
 </style>
